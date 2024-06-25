@@ -1,18 +1,22 @@
 <template>
-  <div
-    class="flex w-80 h-24 bg-gray-200 rounded-xl justify-evenly items-center mx-auto my-20"
-  >
-    <div>
-      <img src="../../../assets/circle.png" alt="" />
-    </div>
-    <div>
-      <h3>{{ file.fileName }}</h3>
-      <p class="text-gray-400">
-        {{ file.fileSize + " - " + file.fileHour + " - " + file.fileDate }}
-      </p>
-    </div>
-    <div>
-      <a href="#"><img src="../../../assets/icons/Line/Option.png" alt="" /></a>
+  <div class="inline-block">
+    <div
+      class="flex w-80 h-24 bg-gray-200 rounded-xl justify-evenly items-center my-8 mx-8"
+    >
+      <div>
+        <img src="../../../assets/circle.png" alt="" />
+      </div>
+      <div>
+        <h3>{{ fileName }}</h3>
+        <p class="text-gray-400">
+          {{ fileSize + " - " + fileHour + " - " + fileDate }}
+        </p>
+      </div>
+      <div>
+        <a href="#"
+          ><img src="../../../assets/icons/Line/Option.png" alt=""
+        /></a>
+      </div>
     </div>
   </div>
 </template>
@@ -26,17 +30,6 @@ export default {
     fileHour: String,
     fileDate: String,
     fileType: String,
-  },
-  data() {
-    return {
-      file: {
-        fileName: "BC company.sketch",
-        fileSize: 10,
-        fileHour: "10:09pm",
-        fileDate: "10 Oct",
-        fileType: "pdf",
-      },
-    };
   },
 };
 </script>
