@@ -1,24 +1,31 @@
 <template>
-  <auth-base><verify-email email="amirali@gmail.com" /></auth-base>
+  <!-- <auth-base><verify-email email="amirali@gmail.com" /></auth-base> -->
+  <!-- <auth-base><login-form /></auth-base> -->
+  <the-header></the-header>
+  <!-- <auth-base><create-account-form /></auth-base> -->
 </template>
 
 <script>
-import AuthBase from "./components/modules/auth/AuthBase.vue";
-import CreateAccountForm from "./components/modules/auth/CreateAccountForm.vue";
-import LoginForm from "./components/modules/auth/LoginForm.vue";
-import VerifyEmail from './components/modules/auth/VerifyEmail.vue';
+// import AuthBase from "./components/modules/auth/AuthBase.vue";
+// import CreateAccountForm from "./components/modules/auth/CreateAccountForm.vue";
+// import LoginForm from "./components/modules/auth/LoginForm.vue";
+import TheHeader from "./components/modules/objects/TheHeader.vue";
+// import VerifyEmail from "./components/modules/auth/VerifyEmail.vue";
 
 export default {
   name: "App",
-  components: { AuthBase, CreateAccountForm, LoginForm, VerifyEmail },
+  components: {
+    // AuthBase,
+    // CreateAccountForm,
+    // VerifyEmail,
+    // LoginForm,
+    TheHeader,
+  },
 };
 </script>
 
 <style>
-body {
-  margin: 0;
-}
-#app {
+CreateAccountForm #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-white shadow-lg p-4 rounded-2xl">
+  <div class="bg-white shadow-lg p-1 rounded-2xl">
     <label class="block text-sm font-medium text-gray-700">{{ label }}</label>
-    <div class="mt-1">
+    <div>
       <input
         :name="name"
         :type="type"
         :placeholder="placeholder"
-        class="font-bold outline-none w-full"
+        class="font-bold outline-none w-full px-2"
       />
     </div>
   </div>
