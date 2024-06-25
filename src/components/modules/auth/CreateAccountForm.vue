@@ -1,11 +1,13 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col justify-between min-h-[75%]">
     <h1 class="font-bold text-5xl">Create Account</h1>
     <div class="space-y-6">
       <app-input label="Username" placeholder="Enter your Username" />
       <app-input label="Email" placeholder="Enter your Username" />
       <app-input label="Password" placeholder="Enter your Password" type="Password" />
       <app-input label="Confirm Password" placeholder="Confirm Password" type="Password" />
+    </div>
+    <div class="space-y-6">
       <app-button :fullWidth="true">Create Account</app-button>
       <p class="text-center">
         Already have an account?
