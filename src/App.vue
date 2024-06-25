@@ -1,15 +1,16 @@
 <template>
-  <auth-base><login-form /></auth-base>
+  <auth-base><verify-email email="amirali@gmail.com" /></auth-base>
 </template>
 
 <script>
 import AuthBase from "./components/modules/auth/AuthBase.vue";
 import CreateAccountForm from "./components/modules/auth/CreateAccountForm.vue";
 import LoginForm from "./components/modules/auth/LoginForm.vue";
+import VerifyEmail from './components/modules/auth/VerifyEmail.vue';
 
 export default {
   name: "App",
-  components: { AuthBase, CreateAccountForm, LoginForm },
+  components: { AuthBase, CreateAccountForm, LoginForm, VerifyEmail },
 };
 </script>
 
