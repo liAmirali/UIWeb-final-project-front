@@ -1,10 +1,34 @@
 <template>
   <div class="inline-block">
     <div
-      class="flex w-80 h-24 bg-gray-200 rounded-xl justify-evenly items-center my-8 mx-8"
+      class="flex w-80 h-24 bg-gray-200 rounded-xl justify-evenly items-center my-8 mx-4"
     >
-      <div>
-        <img src="../../../assets/circle.png" alt="" />
+      <div class="rounded-full bg-gray-300 p-5">
+        <img
+          v-if="fileType === 'music'"
+          src="../../../assets/icons/Logo/Music.png"
+          alt=""
+        />
+        <img
+          v-if="fileType === 'others'"
+          src="../../../assets/icons/Logo/Others.png"
+          alt=""
+        />
+        <img
+          v-if="fileType === 'voice'"
+          src="../../../assets/icons/Logo/Voice.png"
+          alt=""
+        />
+        <img
+          v-if="fileType === 'pdf'"
+          src="../../../assets/icons/Logo/PDF.png"
+          alt=""
+        />
+        <img
+          v-if="fileType === 'audio'"
+          src="../../../assets/icons/Logo/Audio.png"
+          alt=""
+        />
       </div>
       <div>
         <h3>{{ fileName }}</h3>
