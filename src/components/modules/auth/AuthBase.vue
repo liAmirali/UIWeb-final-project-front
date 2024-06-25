@@ -14,7 +14,7 @@
         <img src="../../../assets/search-files-illustration.png" class="w-2/3" />
       </div>
     </div>
-    <div class="flex-grow px-20">
+    <div class="flex-grow px-20 flex flex-col justify-center">
       <slot></slot>
     </div>
   </div>

@@ -1,13 +1,14 @@
 <template>
-  <auth-base>hierere</auth-base>
+  <auth-base><create-account-form-vue /></auth-base>
 </template>
 
 <script>
 import AuthBase from "./components/modules/auth/AuthBase.vue";
+import CreateAccountFormVue from "./components/modules/auth/CreateAccountForm.vue";
 
 export default {
   name: "App",
-  components: { AuthBase },
+  components: { AuthBase, CreateAccountFormVue },
 };
 </script>
 
