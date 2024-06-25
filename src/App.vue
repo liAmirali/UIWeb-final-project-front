@@ -1,14 +1,15 @@
 <template>
-  <auth-base><create-account-form-vue /></auth-base>
+  <auth-base><login-form /></auth-base>
 </template>
 
 <script>
 import AuthBase from "./components/modules/auth/AuthBase.vue";
-import CreateAccountFormVue from "./components/modules/auth/CreateAccountForm.vue";
+import CreateAccountForm from "./components/modules/auth/CreateAccountForm.vue";
+import LoginForm from "./components/modules/auth/LoginForm.vue";
 
 export default {
   name: "App",
-  components: { AuthBase, CreateAccountFormVue },
+  components: { AuthBase, CreateAccountForm, LoginForm },
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white shadow-lg p-4 rounded-md">
+  <div class="bg-white shadow-lg p-4 rounded-2xl">
     <label class="block text-sm font-medium text-gray-700">{{ label }}</label>
     <div class="mt-1">
       <input
