@@ -1,18 +1,22 @@
 <template>
-  <div
-    class="flex w-80 h-24 bg-gray-200 rounded-xl justify-evenly items-center mx-auto my-20"
-  >
-    <div>
-      <img src="../../../assets/circle.png" alt="" />
+  <div class="flex h-20 bg-white rounded-xl justify-evenly items-center">
+    <div class="rounded-full bg-cornflower-blue-400/10 size-12 flex items-center justify-center">
+      <img v-if="fileType === 'music'" src="../../../assets/icons/Logo/Music.png" alt="" />
+      <img v-if="fileType === 'others'" src="../../../assets/icons/Logo/Others.png" alt="" />
+      <img v-if="fileType === 'voice'" src="../../../assets/icons/Logo/Voice.png" alt="" />
+      <img v-if="fileType === 'pdf'" src="../../../assets/icons/Logo/PDF.png" alt="" />
+      <img v-if="fileType === 'audio'" src="../../../assets/icons/Logo/Audio.png" alt="" />
     </div>
+
     <div>
-      <h3>{{ file.fileName }}</h3>
-      <p class="text-gray-400">
-        {{ file.fileSize + " - " + file.fileHour + " - " + file.fileDate }}
+      <p className="text-xs font-semibold">{{ fileName }}</p>
+      <p class="text-gray-400 text-xs">
+        {{ fileSize + " - " + fileHour + " - " + fileDate }}
       </p>
     </div>
+
     <div>
-      <a href="#"><img src="../../../assets/icons/Line/Option.png" alt="" /></a>
+      <img src="../../../assets/icons/Line/Option.png" alt="" />
     </div>
   </div>
 </template>
@@ -21,25 +25,21 @@
 export default {
   name: "ObjectCard",
   props: {
-    fileName: String,
-    fileSize: Number,
-    fileHour: String,
-    fileDate: String,
-    fileType: String,
-  },
-  data() {
-    return {
-      file: {
-        fileName: "BC company.sketch",
-        fileSize: 10,
-        fileHour: "10:09pm",
-        fileDate: "10 Oct",
-        fileType: "pdf",
+    file: {
+      type: Object,
+      required: true,
+      validator(value) {
+        return (
+          typeof value.id === "number" &&
+          typeof value.name === "string" &&
+          typeof value.size === "number" &&
+          typeof value.created === "string" &&
+          typeof value.type === "string"
+        );
       },
-    };
+    },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
