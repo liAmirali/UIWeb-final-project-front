@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-300 my-5 mx-5 rounded-xl py-8 px-8 space-y-8">
+  <div class="bg-catskill-white my-5 mx-5 rounded-xl py-8 px-8 space-y-8">
     <div className="space-y-2">
       <h1 class="text-4xl font-bold">Objects</h1>
       <p class="text-sm">Total: <span class="font-bold">12 GB</span></p>
