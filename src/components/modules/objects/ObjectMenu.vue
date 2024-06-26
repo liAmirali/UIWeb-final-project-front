@@ -4,7 +4,7 @@
   >
     <h2 class="font-bold text-xl mb-3">{{ fileName }}</h2>
     <div class="divide-y flex flex-col">
-      <div class="flex gap-x-3 py-3 items-center">
+      <div v-if="accessType === 'owner'" class="flex gap-x-3 py-3 items-center">
         <div class="rounded-full bg-sandy-brown-300/10 p-2 size-8">
           <img src="../../../assets/icons/Line/Share.png" alt="" />
         </div>
@@ -16,7 +16,7 @@
         </div>
         <p>Download</p>
       </div>
-      <div class="flex gap-x-3 py-3 items-center">
+      <div v-if="accessType === 'owner'" class="flex gap-x-3 py-3 items-center">
         <div class="rounded-full bg-geraldine-400/10 p-2 size-8">
           <img src="../../../assets/icons/Line/Trash.png" alt="" />
         </div>
@@ -32,6 +32,13 @@ export default {
     fileName: {
       type: String,
       required: true,
+    },
+    accessType: {
+      type: String,
+      required: true,
+      validator(value) {
+        return value === "owner" || value === "viewer";
+      },
     },
   },
 };

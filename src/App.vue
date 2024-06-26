@@ -4,7 +4,7 @@
   <!-- <the-header></the-header> -->
   <!-- <auth-base><create-account-form /></auth-base> -->
   <!-- <object-card></object-card> -->
-  <object-menu fileName="Asal.pdf"></object-menu>
+  <object-menu fileName="Asal.pdf" accessType="viewer"></object-menu>
 </template>
 
 <script>
