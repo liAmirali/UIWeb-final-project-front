@@ -3,11 +3,13 @@
   <!-- <auth-base><login-form /></auth-base> -->
   <!-- <the-header></the-header> -->
   <!-- <auth-base><create-account-form /></auth-base> -->
-  <object-card></object-card>
+  <!-- <object-card></object-card> -->
+  <object-menu fileName="Asal.pdf"></object-menu>
 </template>
 
 <script>
-import ObjectCard from "./components/modules/objects/ObjectCard.vue";
+import ObjectMenu from "./components/modules/objects/ObjectMenu.vue";
+// import ObjectCard from "./components/modules/objects/ObjectCard.vue";
 // import AuthBase from "./components/modules/auth/AuthBase.vue";
 // import CreateAccountForm from "./components/modules/auth/CreateAccountForm.vue";
 // import LoginForm from "./components/modules/auth/LoginForm.vue";
@@ -17,12 +19,13 @@ import ObjectCard from "./components/modules/objects/ObjectCard.vue";
 export default {
   name: "App",
   components: {
+    ObjectMenu,
     // AuthBase,
     // CreateAccountForm,
     // VerifyEmail,
     // LoginForm,
     //TheHeader,
-    ObjectCard,
+    // ObjectCard,
   },
 };
 </script>
