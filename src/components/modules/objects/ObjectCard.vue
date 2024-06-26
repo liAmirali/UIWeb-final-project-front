@@ -1,6 +1,6 @@
 <template>
-  <div class="flex h-24 bg-gray-200 rounded-xl justify-evenly items-center">
-    <div class="rounded-full bg-gray-300 p-5">
+  <div class="flex h-20 bg-gray-200 rounded-xl justify-evenly items-center">
+    <div class="rounded-full bg-gray-300 size-12 flex items-center justify-center">
       <img v-if="fileType === 'music'" src="../../../assets/icons/Logo/Music.png" alt="" />
       <img v-if="fileType === 'others'" src="../../../assets/icons/Logo/Others.png" alt="" />
       <img v-if="fileType === 'voice'" src="../../../assets/icons/Logo/Voice.png" alt="" />

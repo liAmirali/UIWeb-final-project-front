@@ -1,14 +1,21 @@
 <template>
-  <div class="bg-gray-300 my-5 mx-5 rounded-xl grid grid-cols-4 gap-4 py-8 px-4">
-    <object-card
-      v-for="file in files"
-      :key="file.fileName"
-      :fileName="file.fileName"
-      :fileSize="file.fileSize"
-      :fileHour="file.fileHour"
-      :fileDate="file.fileDate"
-      :fileType="file.fileType"
-    ></object-card>
+  <div class="bg-gray-300 my-5 mx-5 rounded-xl py-8 px-8 space-y-8">
+    <div className="space-y-2">
+      <h1 class="text-4xl font-bold">Objects</h1>
+      <p class="text-sm">Total: <span class="font-bold">12 GB</span></p>
+    </div>
+
+    <div class="grid grid-cols-4 gap-4">
+      <object-card
+        v-for="file in files"
+        :key="file.fileName"
+        :fileName="file.fileName"
+        :fileSize="file.fileSize"
+        :fileHour="file.fileHour"
+        :fileDate="file.fileDate"
+        :fileType="file.fileType"
+      ></object-card>
+    </div>
   </div>
 </template>
 
@@ -98,5 +105,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
