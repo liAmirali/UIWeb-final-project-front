@@ -4,11 +4,11 @@
   <the-header></the-header>
   <!-- <auth-base><create-account-form /></auth-base> -->
   <!-- <object-card></object-card> -->
-  <object-container></object-container>
+  <object-menu fileName="Asal.pdf" accessType="viewer"></object-menu>
 </template>
 
 <script>
-import ObjectContainer from "./components/modules/objects/ObjectContainer.vue";
+import ObjectMenu from "./components/modules/objects/ObjectMenu.vue";
 // import ObjectCard from "./components/modules/objects/ObjectCard.vue";
 // import AuthBase from "./components/modules/auth/AuthBase.vue";
 // import CreateAccountForm from "./components/modules/auth/CreateAccountForm.vue";
@@ -19,13 +19,13 @@ import TheHeader from "./components/modules/objects/TheHeader.vue";
 export default {
   name: "App",
   components: {
+    ObjectMenu,
     // AuthBase,
     // CreateAccountForm,
     // VerifyEmail,
     // LoginForm,
-    TheHeader,
+    //TheHeader,
     // ObjectCard,
-    ObjectContainer,
   },
 };
 </script>
