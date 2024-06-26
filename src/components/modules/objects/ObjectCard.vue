@@ -9,8 +9,8 @@
     </div>
 
     <div>
-      <h3>{{ fileName }}</h3>
-      <p class="text-gray-400">
+      <p className="text-xs font-semibold">{{ fileName }}</p>
+      <p class="text-gray-400 text-xs">
         {{ fileSize + " - " + fileHour + " - " + fileDate }}
       </p>
     </div>
