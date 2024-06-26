@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-300 my-5 mx-5 rounded-xl flex flex-wrap justify-between">
+  <div class="bg-gray-300 my-5 mx-5 rounded-xl grid grid-cols-4 gap-4 py-8 px-4">
     <object-card
       v-for="file in files"
       :key="file.fileName"
@@ -22,6 +22,13 @@ export default {
   data() {
     return {
       files: [
+        {
+          fileName: "BC company.sketch",
+          fileSize: 10,
+          fileHour: "10:09pm",
+          fileDate: "10 Oct",
+          fileType: "music",
+        },
         {
           fileName: "BC company.sketch",
           fileSize: 10,
