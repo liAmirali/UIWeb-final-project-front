@@ -25,11 +25,19 @@
 export default {
   name: "ObjectCard",
   props: {
-    fileName: String,
-    fileSize: Number,
-    fileHour: String,
-    fileDate: String,
-    fileType: String,
+    file: {
+      type: Object,
+      required: true,
+      validator(value) {
+        return (
+          typeof value.id === "number" &&
+          typeof value.name === "string" &&
+          typeof value.size === "number" &&
+          typeof value.created === "string" &&
+          typeof value.type === "string"
+        );
+      },
+    },
   },
 };
 </script>
