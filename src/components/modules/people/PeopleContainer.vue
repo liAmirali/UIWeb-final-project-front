@@ -4,12 +4,10 @@
       <div class="flex absolute left-3"><back-button></back-button></div>
       <p class="text-xl font-semibold">Add People</p>
     </div>
-    <div class="px-3">
-      <app-input placeholder="Search people" style="thin"></app-input>
+    <div class="px-3 mb-5">
+      <app-input placeholder="Search people" :style="'thin'"></app-input>
     </div>
-    <div
-      class="max-h-96 overflow-auto space-y-3 bg-neutral-50 px-3 rounded-3xl"
-    >
+    <div class="max-h-96 overflow-auto space-y-3 px-3">
       <people-item
         name="Asal"
         email="asal.khaef@gmail.com"
