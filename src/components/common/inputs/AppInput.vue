@@ -1,9 +1,11 @@
 <template>
   <div
     class="bg-white shadow-lg rounded-2xl"
-    :class="{ 'p-4': style === 'default', 'p-1': style === 'thin' }"
+    :class="{ 'p-4': style === 'default', 'p-1 shadow-sm': style === 'thin' }"
   >
-    <label v-if="label" class="block text-sm font-medium text-gray-700">{{ label }}</label>
+    <label v-if="label" class="block text-sm font-medium text-gray-700">{{
+      label
+    }}</label>
 
     <div class="flex">
       <input
