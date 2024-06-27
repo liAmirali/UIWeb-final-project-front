@@ -1,31 +1,17 @@
 <template>
-  <!-- <auth-base><verify-email email="amirali@gmail.com" /></auth-base> -->
-  <auth-base><login-form /></auth-base>
-  <!-- <the-header></the-header> -->
-  <!-- <auth-base><create-account-form /></auth-base> -->
-  <!-- <object-card></object-card> -->
-  <!-- <object-menu fileName="Asal.pdf" accessType="viewer"></object-menu> -->
+  <verify-email-page />
 </template>
 
 <script>
-// import ObjectMenu from "./components/modules/objects/ObjectMenu.vue";
-// import ObjectCard from "./components/modules/objects/ObjectCard.vue";
-import AuthBase from "./components/modules/auth/AuthBase.vue";
-// import CreateAccountForm from "./components/modules/auth/CreateAccountForm.vue";
-import LoginForm from "./components/modules/auth/LoginForm.vue";
-// import TheHeader from "./components/modules/objects/TheHeader.vue";
-// import VerifyEmail from "./components/modules/auth/VerifyEmail.vue";
-
+import VerifyEmailPage from "./components/modules/auth/VerifyEmailPage.vue";
+// import LoginPage from "./components/modules/auth/LoginPage.vue";
+// import RegisterPage from "./components/modules/auth/RegisterPage.vue";
 export default {
   name: "App",
   components: {
-    // ObjectMenu,
-    AuthBase,
-    // CreateAccountForm,
-    // VerifyEmail,
-    LoginForm,
-    //TheHeader,
-    // ObjectCard,
+    // LoginPage,
+    // RegisterPage,
+    VerifyEmailPage,
   },
 };
 </script>

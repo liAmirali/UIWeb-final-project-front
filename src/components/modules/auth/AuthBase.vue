@@ -6,7 +6,7 @@
     >
       <h1 class="text-4xl">Storage</h1>
 
-      <div>
+      <div class="flex flex-col gap-y-4">
         <p class="text-5xl font-bold">Manage your files the best way</p>
         <p>
           Awesome, we've created the perfect place for you to store all your
