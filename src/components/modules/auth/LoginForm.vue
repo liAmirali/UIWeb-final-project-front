@@ -9,7 +9,7 @@
       <app-input
         label="Password"
         placeholder="Enter your Password"
-        type="Password"
+        type="password"
       />
     </div>
     <div class="space-y-6">
