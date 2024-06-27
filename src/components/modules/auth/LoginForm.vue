@@ -16,9 +16,7 @@
       <app-button :fullWidth="true">Login</app-button>
       <p class="text-center">
         Don't have an account?
-        <a class="hover:underline text-picton-blue-300 cursor-pointer"
-          >Create Account.</a
-        >
+        <a class="hover:underline text-picton-blue-300 cursor-pointer">Create Account.</a>
       </p>
     </div>
   </div>

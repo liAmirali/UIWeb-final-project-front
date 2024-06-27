@@ -16,7 +16,7 @@
 
       <div class="flex justify-center">
         <img
-          src="../../../assets/search-files-illustration.png"
+          src="../../../assets/illustration/search-files.png"
           class="w-2/3"
         />
       </div>

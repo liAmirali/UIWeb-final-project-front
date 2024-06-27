@@ -6,19 +6,19 @@
     <div class="divide-y flex flex-col">
       <div v-if="accessType === 'owner'" class="flex gap-x-3 py-3 items-center">
         <div class="rounded-full bg-sandy-brown-300/10 p-2 size-8">
-          <img src="../../../assets/icons/Line/Share.png" alt="" />
+          <img src="../../../assets/icons/Line/Share.svg" alt="" />
         </div>
         <p>Share</p>
       </div>
       <div class="flex gap-x-3 py-3 items-center">
         <div class="rounded-full bg-cornflower-blue-400/10 p-2 size-8">
-          <img src="../../../assets/icons/Line/Dowload.png" alt="" />
+          <img src="../../../assets/icons/Line/Dowload.svg" alt="" />
         </div>
         <p>Download</p>
       </div>
       <div v-if="accessType === 'owner'" class="flex gap-x-3 py-3 items-center">
         <div class="rounded-full bg-geraldine-400/10 p-2 size-8">
-          <img src="../../../assets/icons/Line/Trash.png" alt="" />
+          <img src="../../../assets/icons/Line/Trash.svg" alt="" />
         </div>
         <p>Trash</p>
       </div>
