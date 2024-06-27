@@ -23,7 +23,7 @@
     </div>
     <!-- Right sidebar -->
     <div class="flex-grow flex flex-col justify-center">
-      <div class="flex justify-stretch w-2/3 mx-auto flex-1">
+      <div class="flex flex-col justify-center w-2/3 mx-auto flex-1">
         <slot></slot>
       </div>
     </div>
