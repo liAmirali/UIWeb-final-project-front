@@ -1,22 +1,23 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./index.css";
-import { createRouter, createMemoryHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import LoginPage from "./components/modules/auth/LoginPage.vue";
 import RegisterPage from "./components/modules/auth/RegisterPage.vue";
-import VerifyEmail from "./components/modules/auth/VerifyEmail.vue";
-import ObjectsPage from "./components/modules/objects/ObjectsPage.vue"
+import VerifyEmailPage from "./components/modules/auth/VerifyEmailPage.vue";
+import ObjectsPage from "./components/modules/objects/ObjectsPage.vue";
 
 const routes = [
+  { path: "/", component: ObjectsPage },
   { path: "/login", component: LoginPage },
   { path: "/register", component: RegisterPage },
-  { path: "/verify", component: VerifyEmail },
-  { path: "", component: ObjectsPage },
+  { path: "/verify", component: VerifyEmailPage },
+  { path: '/:pathMatch(.*)*', redirect: '/' }, // Redirect any unknown paths to the /
 ];
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
 
