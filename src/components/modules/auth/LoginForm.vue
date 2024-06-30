@@ -51,7 +51,13 @@ export default {
       axios
         .post("http://localhost:8000/api/auth/login/", { username, password })
         .then((response) => {
-          console.log(response);
+          const refreshToken = response.data.refresh;
+          const accessToken = response.data.access;
+
+          localStorage.setItem("refreshToken", refreshToken);
+          localStorage.setItem("accessToken", accessToken);
+
+          this.$router.push("/");
         })
         .catch((error) => {
           this.errorMessage = error.response.data.detail;
