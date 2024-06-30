@@ -28,7 +28,7 @@
 <script>
 import AppButton from "@/components/common/buttons/AppButton.vue";
 import AppInput from "@/components/common/inputs/AppInput.vue";
-import axios from "axios";
+import { fetcher } from "@/config/api";
 
 export default {
   name: "LoginForm",
@@ -48,8 +48,8 @@ export default {
 
       console.log(username, password);
 
-      axios
-        .post("http://localhost:8000/api/auth/login/", { username, password })
+      fetcher
+        .post("/auth/login/", { username, password })
         .then((response) => {
           const refreshToken = response.data.refresh;
           const accessToken = response.data.access;
@@ -60,7 +60,11 @@ export default {
           this.$router.push("/");
         })
         .catch((error) => {
-          this.errorMessage = error.response.data.detail;
+          if (error?.response?.data?.detail) this.errorMessage = error.response.data.detail;
+          else {
+            this.errorMessage = "An unexpected error happened.";
+            console.error("The unexpected error that happened:", error);
+          }
         });
     },
   },
