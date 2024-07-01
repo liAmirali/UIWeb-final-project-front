@@ -1,26 +1,26 @@
 <template>
   <div
-    class="w-[347px] rounded-xl border-solid border-black border flex flex-col py-4 px-4"
+    class="rounded-xl flex flex-col py-4 px-4 bg-white shadow-lg z-10 relative"
   >
-    <h2 class="font-bold text-xl mb-3">{{ fileName }}</h2>
+    <p class="font-semibold mb-3">{{ fileName }}</p>
     <div class="divide-y flex flex-col">
-      <div v-if="accessType === 'owner'" class="flex gap-x-3 py-3 items-center">
-        <div class="rounded-full bg-sandy-brown-300/10 p-2 size-8">
+      <div v-if="accessType === 'owner'" class="flex gap-x-3 pb-2 items-center">
+        <div class="rounded-full bg-sandy-brown-300/10 p-[0.6rem] size-8">
           <img src="../../../assets/icons/Line/Share.svg" alt="" />
         </div>
-        <p>Share</p>
+        <p class="text-sm">Share</p>
       </div>
-      <div class="flex gap-x-3 py-3 items-center">
-        <div class="rounded-full bg-cornflower-blue-400/10 p-2 size-8">
+      <div class="flex gap-x-3 py-2 items-center">
+        <div class="rounded-full bg-cornflower-blue-400/10 p-[0.6rem] size-8">
           <img src="../../../assets/icons/Line/Dowload.svg" alt="" />
         </div>
-        <p>Download</p>
+        <p class="text-sm">Download</p>
       </div>
-      <div v-if="accessType === 'owner'" class="flex gap-x-3 py-3 items-center">
-        <div class="rounded-full bg-geraldine-400/10 p-2 size-8">
+      <div v-if="accessType === 'owner'" class="flex gap-x-3 pt-2 items-center">
+        <div class="rounded-full bg-geraldine-400/10 p-[0.6rem] size-8">
           <img src="../../../assets/icons/Line/Trash.svg" alt="" />
         </div>
-        <p>Trash</p>
+        <p class="text-sm">Trash</p>
       </div>
     </div>
   </div>

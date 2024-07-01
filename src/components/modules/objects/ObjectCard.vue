@@ -1,5 +1,9 @@
 <template>
-  <div class="flex h-20 bg-white rounded-xl items-center px-4">
+  <div
+    class="flex h-20 bg-white rounded-xl items-center px-4 relative"
+    @click="openMenu"
+    @contextmenu.prevent="openMenu"
+  >
     <div class="rounded-full bg-cornflower-blue-400/10 size-12 flex items-center justify-center">
       <img v-if="file.type === 'music'" src="../../../assets/icons/File Types/music.svg" alt="" />
       <img v-if="file.type === 'others'" src="../../../assets/icons/File Types/Others.svg" alt="" />
@@ -15,15 +19,22 @@
       </p>
     </div>
 
-    <div class="ml-auto">
+    <div class="ml-auto" @click.stop="toggleMenu">
       <img src="../../../assets/icons/Line/Option.svg" alt="" />
+    </div>
+
+    <div v-if="menuOpen" class="absolute top-0 left-0s">
+      <object-menu :fileName="file.name" :accessType="'owner'"></object-menu>
     </div>
   </div>
 </template>
 
 <script>
+import ObjectMenu from "./ObjectMenu.vue";
+
 export default {
   name: "ObjectCard",
+  components: { ObjectMenu },
   props: {
     file: {
       type: Object,
@@ -38,6 +49,38 @@ export default {
         );
       },
     },
+  },
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+    openMenu(event) {
+      // Open menu on left click or right-click
+      if (event.type === "click" || event.type === "contextmenu") {
+        this.menuOpen = true;
+      }
+    },
+  },
+  mounted() {
+    // Close menu when clicking outside of the card
+    document.addEventListener("click", this.closeMenuOnClickOutside);
+    document.addEventListener("contextmenu", this.closeMenuOnClickOutside);
+  },
+  beforeUnmount() {
+    document.removeEventListener("click", this.closeMenuOnClickOutside);
+    document.removeEventListener("contextmenu", this.closeMenuOnClickOutside);
+  },
+  closeMenuOnClickOutside(event) {
+    // Check if the click is outside of the card
+    if (!this.$el.contains(event.target)) {
+      // Close the menu if it's open
+      this.menuOpen = false;
+    }
   },
 };
 </script>

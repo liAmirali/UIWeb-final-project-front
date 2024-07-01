@@ -3,7 +3,7 @@
     <h2 class="text-cornflower-blue-400 font-bold">Storage</h2>
     <div class="grow">
       <div class="w-1/2">
-        <app-input placeholder="Search"></app-input>
+        <app-input placeholder="Search" :style="'thin'"></app-input>
       </div>
     </div>
     <div class="flex justify-between gap-x-4">
