@@ -1,5 +1,8 @@
 <template>
-  <form @submit.prevent="onFormSubmit" class="flex flex-col justify-between h-[70%]">
+  <form
+    @submit.prevent="onFormSubmit"
+    class="flex flex-col justify-between h-[70%]"
+  >
     <h1 class="font-bold text-5xl">Login</h1>
     <div class="space-y-6">
       <app-input
@@ -19,7 +22,9 @@
       <app-button :fullWidth="true" type="submit">Login</app-button>
       <p class="text-center">
         Don't have an account?
-        <a class="hover:underline text-picton-blue-300 cursor-pointer">Create Account.</a>
+        <a class="hover:underline text-picton-blue-300 cursor-pointer"
+          >Create Account.</a
+        >
       </p>
     </div>
   </form>
@@ -60,7 +65,8 @@ export default {
           this.$router.push("/");
         })
         .catch((error) => {
-          if (error?.response?.data?.detail) this.errorMessage = error.response.data.detail;
+          if (error?.response?.data?.detail)
+            this.errorMessage = error.response.data.detail;
           else {
             this.errorMessage = "An unexpected error happened.";
             console.error("The unexpected error that happened:", error);
