@@ -1,5 +1,6 @@
 <template>
   <div class="flex gap-x-3 items-center">
+    <input type="checkbox" checked="checked" />
     <div class="size-8">
       <img class="rounded-full" :src="pictureUrl" alt="" />
     </div>

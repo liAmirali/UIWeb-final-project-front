@@ -1,9 +1,12 @@
 <template>
   <router-view></router-view>
+  <people-item></people-item>
 </template>
 
 <script>
+import PeopleItem from "./components/modules/people/PeopleItem.vue";
 export default {
+  components: { PeopleItem },
   name: "App",
 };
 </script>
