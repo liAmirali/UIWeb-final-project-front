@@ -1,5 +1,8 @@
 <template>
-  <div class="flex h-20 bg-white rounded-xl items-center px-4">
+  <div
+    class="flex h-20 bg-white rounded-xl items-center px-4"
+    @contextmenu.prevent="openMenu"
+  >
     <div class="rounded-full bg-cornflower-blue-400/10 size-12 flex items-center justify-center">
       <img v-if="file.type === 'music'" src="../../../assets/icons/File Types/music.svg" alt="" />
       <img v-if="file.type === 'others'" src="../../../assets/icons/File Types/Others.svg" alt="" />
@@ -68,6 +71,12 @@ export default {
       else this.openMenuDir = "right";
 
       this.isMenuOpen = !this.isMenuOpen;
+    },
+    openMenu(event) {
+      if (event.clientX > window.innerWidth / 2) this.openMenuDir = "left";
+      else this.openMenuDir = "right";
+
+      this.isMenuOpen = true;
     },
   },
 };
