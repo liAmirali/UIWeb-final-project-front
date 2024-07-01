@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-20 bg-white rounded-xl justify-evenly items-center">
+  <div class="flex h-20 bg-white rounded-xl items-center px-4">
     <div class="rounded-full bg-cornflower-blue-400/10 size-12 flex items-center justify-center">
       <img v-if="file.type === 'music'" src="../../../assets/icons/File Types/music.svg" alt="" />
       <img v-if="file.type === 'others'" src="../../../assets/icons/File Types/Others.svg" alt="" />
@@ -8,14 +8,14 @@
       <img v-if="file.type === 'audio'" src="../../../assets/icons/File Types/Audio.svg" alt="" />
     </div>
 
-    <div>
+    <div class="px-4">
       <p className="text-xs font-semibold">{{ file.name }}</p>
       <p class="text-gray-400 text-xs">
         {{ file.size + " - " + file.created }}
       </p>
     </div>
 
-    <div>
+    <div class="ml-auto">
       <img src="../../../assets/icons/Line/Option.svg" alt="" />
     </div>
   </div>
