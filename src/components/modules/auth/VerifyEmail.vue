@@ -4,10 +4,11 @@
     <div class="w-full flex flex-col items-center justify-center gap-y-6">
       <img src="../../../assets/illustration/email.png" width="230" />
       <p>
-        We've sent an email to <span class="font-bold">{{ email }}</span> to verify your account.
+        We've sent an email to <span class="font-bold">{{ email }}</span> to
+        verify your account.
       </p>
     </div>
-    <app-button :fullWidth="true">Login</app-button>
+    <app-button :fullWidth="true" @click="goToLogin">Login</app-button>
   </div>
 </template>
 
@@ -18,6 +19,11 @@ export default {
   components: { AppButton },
   props: {
     email: String,
+  },
+  methods: {
+    goToLogin() {
+      this.$router.push("/login");
+    },
   },
 };
 </script>
