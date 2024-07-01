@@ -61,9 +61,9 @@ export default {
 
       fetcher
         .post("/auth/signup/", {
-          username: "username",
-          password: "password1",
-          email: "email",
+          username: username,
+          password: password1,
+          email: email,
         })
         .then(() => {
           this.$router.push("/verify");
