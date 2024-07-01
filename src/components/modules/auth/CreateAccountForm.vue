@@ -29,7 +29,7 @@
       <app-button :fullWidth="true" type="submit">Create Account</app-button>
       <p class="text-center">
         Already have an account?
-        <a class="hover:underline text-picton-blue-300 cursor-pointer">Login</a>
+        <router-link to="/login" class="hover:underline text-picton-blue-300 cursor-pointer">Login</router-link>
       </p>
     </div>
   </form>
