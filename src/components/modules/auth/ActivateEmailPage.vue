@@ -21,12 +21,7 @@ export default {
 
       if (uid && token) {
         fetcher
-          .get("/auth/login/", {
-            params: {
-              uid: uid,
-              token: token,
-            },
-          })
+          .get(`/auth/activate/${uid}/${token}`)
           .then((response) => {
             // Handle success
             console.log("Activation successful:", response.data);

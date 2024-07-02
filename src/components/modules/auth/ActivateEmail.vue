@@ -4,7 +4,9 @@
     <div class="w-full flex flex-col items-center justify-center gap-y-6">
       <img src="../../../assets/illustration/email.png" width="230" />
     </div>
-    <app-button :fullWidth="true">Login</app-button>
+    <router-link to="/login" class="block w-full"
+      ><app-button :fullWidth="true">Login</app-button></router-link
+    >
   </div>
 </template>
 
