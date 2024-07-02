@@ -33,8 +33,7 @@ export default {
       try {
         // fetch objects
         const res = await fetcher("/objects/list");
-        files.value = res.data.results;
-
+        console.log("res", res.data.results);
         files.value = res.data.results;
       } catch (error) {
         console.log("error", error);

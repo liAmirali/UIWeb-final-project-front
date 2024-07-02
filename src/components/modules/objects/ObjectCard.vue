@@ -1,20 +1,17 @@
 <template>
-  <div
-    class="flex h-20 bg-white rounded-xl items-center px-4"
-    @contextmenu.prevent="openMenu"
-  >
+  <div class="flex h-20 bg-white rounded-xl items-center px-4" @contextmenu.prevent="openMenu">
     <div class="rounded-full bg-cornflower-blue-400/10 size-12 flex items-center justify-center">
-      <img v-if="file.type === 'music'" src="../../../assets/icons/File Types/music.svg" alt="" />
-      <img v-if="file.type === 'others'" src="../../../assets/icons/File Types/Others.svg" alt="" />
-      <img v-if="file.type === 'voice'" src="../../../assets/icons/File Types/Voice.svg" alt="" />
-      <img v-if="file.type === 'pdf'" src="../../../assets/icons/File Types/PDF.svg" alt="" />
-      <img v-if="file.type === 'audio'" src="../../../assets/icons/File Types/Audio.svg" alt="" />
+      <img v-if="file.file_type === 'music'" src="../../../assets/icons/File Types/music.svg" alt="" />
+      <img v-if="file.file_type === 'pdf'" src="../../../assets/icons/File Types/PDF.svg" alt="" />
+      <img v-if="file.file_type === 'video'" src="../../../assets/icons/File Types/Audio.svg" alt="" />
+      <img v-if="file.file_type === 'image'" src="../../../assets/icons/File Types/Image.svg" alt="" />
+      <img v-if="file.file_type === 'others'" src="../../../assets/icons/File Types/Others.svg" alt="" />
     </div>
 
     <div class="px-4">
       <p className="text-xs font-semibold">{{ file.name }}</p>
       <p class="text-gray-400 text-xs">
-        {{ file.size + " - " + file.created }}
+        {{ file.size + "B - " + file.uploaded_at }}
       </p>
     </div>
 
@@ -31,7 +28,11 @@
         class="absolute top-5"
         :class="{ 'left-5': openMenuDir == 'right', 'right-5': openMenuDir == 'left' }"
       >
-        <object-menu :fileName="file.name" :accessType="'owner'"></object-menu>
+        <object-menu
+          :fileName="file.name"
+          :accessType="file.is_owner ? 'owner' : 'viewer'"
+          :objectKey="file.object_key"
+        ></object-menu>
       </div>
     </div>
   </div>
@@ -49,11 +50,13 @@ export default {
       required: true,
       validator(value) {
         return (
-          typeof value.id === "number" &&
+          typeof value.object_key === "string" &&
           typeof value.name === "string" &&
           typeof value.size === "number" &&
-          typeof value.created === "string" &&
-          typeof value.type === "string"
+          typeof value.uploaded_at === "string" &&
+          typeof value.file_type === "string" &&
+          typeof value.mime_type === "string" &&
+          typeof value.is_owner === "boolean"
         );
       },
     },

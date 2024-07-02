@@ -56,10 +56,20 @@ export default {
   },
   methods: {
     onDownload() {
-      fetcher("/objects/download", { object_key: this.objectKey });
+      console.log(this.objectKey);
+      fetcher.get("/objects/download/", { params: { object_key: this.objectKey } }).then((res) => {
+        const url = window.URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", this.fileName);
+        document.body.appendChild(link);
+        link.click();
+        window.URL.revokeObjectURL(url);
+        link.remove();
+      });
     },
     onTrash() {
-      fetcher("/objects/delete", { object_key: this.objectKey });
+      fetcher.post("/objects/delete/", { object_key: this.objectKey });
     },
   },
 };
