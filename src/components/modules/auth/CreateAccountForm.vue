@@ -10,7 +10,7 @@
         label="Username"
         placeholder="Enter your Username"
       />
-      <app-input name="email" label="Email" placeholder="Enter your Username" />
+      <app-input name="email" label="Email" placeholder="Enter your email" />
       <app-input
         name="password1"
         label="Password"
@@ -29,7 +29,12 @@
       <app-button :fullWidth="true" type="submit">Create Account</app-button>
       <p class="text-center">
         Already have an account?
-        <router-link to="/login" class="hover:underline text-picton-blue-300 cursor-pointer">Login</router-link>
+        <router-link
+          to="/login"
+          class="hover:underline text-picton-blue-300 cursor-pointer"
+        >
+          Login
+        </router-link>
       </p>
     </div>
   </form>
