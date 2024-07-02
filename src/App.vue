@@ -3,8 +3,34 @@
 </template>
 
 <script>
+import { fetcher } from "@/config/api";
+
 export default {
   name: "App",
+  mounted() {
+    this.checkLogin();
+  },
+  methods: {
+    checkLogin() {
+      const accessToken = localStorage.getItem("accessToken");
+      if (accessToken === null) {
+        this.$router.push("/login");
+      } else {
+        fetcher
+          .post("/auth/verify/", { token: accessToken })
+          .then(() => {
+            // Handle success
+            this.$router.push("/");
+          })
+          .catch((error) => {
+            // Handle error
+            if (error.response.status === 401) {
+              this.$router.push("/login");
+            }
+          });
+      }
+    },
+  },
 };
 </script>
 
