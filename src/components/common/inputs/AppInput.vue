@@ -1,7 +1,7 @@
 <template>
   <div
     class="bg-white shadow-lg rounded-2xl"
-    :class="{ 'p-4': style === 'default', 'p-1 shadow-sm': style === 'thin' }"
+    :class="{ 'p-4': style === 'default', 'p-2 shadow-md': style === 'thin' }"
   >
     <label v-if="label" class="block text-sm font-medium text-gray-700">{{
       label
