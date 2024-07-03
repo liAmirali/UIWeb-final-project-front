@@ -61,9 +61,9 @@ export default {
           },
         })
         .then((res) => {
-          this.people = res.data.sort((a, b) =>
-            a.has_access && b.has_access ? 0 : a.has_access ? 1 : -1
-          );
+          this.people = res.data
+            .filter((u) => !u.is_owner)
+            .sort((a, b) => (a.has_access && b.has_access ? 0 : a.has_access ? -1 : 1));
           this.people.forEach((user) => {
             if (user.has_access) this.checkedUsers.push(user.id);
           });
@@ -79,7 +79,17 @@ export default {
       }
     },
     handleSubmitClick() {
-      console.log(this.checkedUsers);
+      fetcher
+        .put("/objects/access/", {
+          object_key: this.objectKey,
+          shared_with: this.checkedUsers,
+        })
+        .then(() => {
+          this.$emit("backClick");
+        })
+        .catch(() => {
+          alert("An error occurred.");
+        });
     },
   },
   mounted() {
