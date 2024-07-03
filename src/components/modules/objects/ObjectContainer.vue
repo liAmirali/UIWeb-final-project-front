@@ -2,7 +2,9 @@
   <div class="bg-catskill-white my-5 mx-5 rounded-xl py-8 px-8 space-y-8">
     <div className="space-y-2">
       <h1 class="text-4xl font-bold">Objects</h1>
-      <p class="text-sm">Total: <span class="font-semibold">12 GB</span></p>
+      <p class="text-sm">
+        Total: <span class="font-semibold">{{ getTotalObjectsSize }}</span>
+      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -14,7 +16,7 @@
 <script>
 import ObjectCard from "@/components/modules/objects/ObjectCard.vue";
 import { fetcher } from "@/config/api";
-import { onMounted, ref } from "vue";
+import { humanReadableSize } from "@/helpers/prettifiers";
 
 export default {
   name: "ObjectContainer",
@@ -22,27 +24,28 @@ export default {
     ObjectCard,
   },
   data() {
-    return {};
-  },
-  setup() {
-    const files = ref([]);
-
-    onMounted(async () => {
-      console.log("Hi");
-
-      try {
-        // fetch objects
-        const res = await fetcher("/objects/list");
-        console.log("res", res.data.results);
-        files.value = res.data.results;
-      } catch (error) {
-        console.log("error", error);
-      }
-    });
-
     return {
-      files,
+      files: [],
     };
+  },
+  computed: {
+    getTotalObjectsSize() {
+      return humanReadableSize(this.files.reduce((acc, file) => acc + file.size, 0));
+    },
+  },
+  methods: {
+    fetchList() {
+      fetcher("/objects/list/")
+        .then((res) => {
+          this.files = res.data.results;
+        })
+        .catch(() => {
+          alert("Error fetching objects list.");
+        });
+    },
+  },
+  mounted() {
+    this.fetchList();
   },
 };
 </script>
