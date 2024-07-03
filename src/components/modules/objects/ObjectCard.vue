@@ -28,9 +28,7 @@
 
     <div class="px-4">
       <p className="text-xs font-semibold">{{ file.name }}</p>
-      <p class="text-gray-400 text-xs">
-        {{ file.size + "B - " + file.uploaded_at }}
-      </p>
+      <p class="text-gray-400 text-xs">{{ formattedFileSize }} - {{ formattedDateTime }}</p>
     </div>
 
     <div class="ml-auto relative">
@@ -57,6 +55,7 @@
 </template>
 
 <script>
+import { formatDateTime, humanReadableSize } from "@/helpers/prettifiers";
 import ObjectMenu from "./ObjectMenu.vue";
 
 export default {
@@ -98,6 +97,14 @@ export default {
       else this.openMenuDir = "right";
 
       this.isMenuOpen = true;
+    },
+  },
+  computed: {
+    formattedFileSize() {
+      return humanReadableSize(this.file.size);
+    },
+    formattedDateTime() {
+      return formatDateTime(this.file.uploaded_at);
     },
   },
 };
