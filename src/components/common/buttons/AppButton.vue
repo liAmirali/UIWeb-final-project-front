@@ -3,6 +3,7 @@
     class="bg-cornflower-blue-400 hover:bg-cornflower-blue-700 text-white font-bold py-3 px-4 rounded-full transition-all"
     :class="{ 'w-full': fullWidth }"
     :type="type"
+    @click="handleClick"
   >
     <slot></slot>
   </button>
@@ -10,6 +11,8 @@
 
 <script>
 export default {
+  name: "AppButton",
+  emits: ["click"],
   props: {
     fullWidth: Boolean,
     type: {
@@ -17,7 +20,11 @@ export default {
       default: "button",
     },
   },
-  name: "AppButton",
+  methods: {
+    handleClick() {
+      this.$emit("click");
+    },
+  },
 };
 </script>
 

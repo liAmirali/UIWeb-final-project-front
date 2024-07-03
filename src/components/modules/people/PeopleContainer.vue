@@ -13,6 +13,8 @@
         :key="person.id"
         :name="person.username"
         :email="person.email"
+        :checked="checkedUsers.includes(person.id)"
+        @checkbox-change="handleCheckBoxChange(person.id)"
         pictureUrl="/Avatar.png"
       ></people-item>
     </div>
@@ -22,7 +24,7 @@
         <img class="rounded-full size-8 border -ml-2" src="/Avatar.png" alt="" />
         <img class="rounded-full size-8 border -ml-2" src="/Avatar.png" alt="" />
       </div>
-      <app-button>Continue</app-button>
+      <app-button @click="handleSubmitClick">Continue</app-button>
     </div>
   </div>
 </template>
@@ -44,7 +46,7 @@ export default {
     },
   },
   data() {
-    return { people: [] };
+    return { people: [], checkedUsers: [] };
   },
   methods: {
     onBackButtonClick() {
@@ -59,9 +61,25 @@ export default {
           },
         })
         .then((res) => {
-          this.people = res.data;
+          this.people = res.data.sort((a, b) =>
+            a.has_access && b.has_access ? 0 : a.has_access ? 1 : -1
+          );
+          this.people.forEach((user) => {
+            if (user.has_access) this.checkedUsers.push(user.id);
+          });
         })
         .catch(() => {});
+    },
+    handleCheckBoxChange(personId) {
+      const index = this.checkedUsers.indexOf(personId);
+      if (index === -1) {
+        this.checkedUsers.push(personId);
+      } else {
+        this.checkedUsers.splice(index, 1);
+      }
+    },
+    handleSubmitClick() {
+      console.log(this.checkedUsers);
     },
   },
   mounted() {

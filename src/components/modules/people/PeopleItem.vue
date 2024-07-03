@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-x-3 items-center">
-    <input type="checkbox" checked="checked" />
+    <input type="checkbox" :checked="checked" @change="handleCheckboxChange" />
     <div class="size-8">
       <img class="rounded-full" :src="pictureUrl" alt="" />
     </div>
@@ -13,13 +13,20 @@
 
 <script>
 export default {
+  name: "PeopleItem",
+  emits: ["checkboxChange"],
   props: {
     pictureUrl: String,
     name: String,
     email: String,
+    checked: Boolean,
+  },
+  methods: {
+    handleCheckboxChange() {
+      this.$emit("checkboxChange");
+    },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
