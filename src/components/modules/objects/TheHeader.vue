@@ -59,9 +59,11 @@ export default {
         })
         .then((response) => {
           console.log(response.data);
+          alert("Uploaded successfully.");
         })
         .catch((error) => {
           console.error(error);
+          alert("Upload failed.");
         });
     },
     setName() {

@@ -103,10 +103,12 @@ export default {
       fetcher
         .delete("/objects/delete/", { data: { object_key: this.objectKey } })
         .then(() => {
-          console.log("Successfully deleted object");
+          alert("Successfully deleted object.");
+          console.log("Successfully deleted object.");
         })
         .catch((e) => {
-          console.log("Failed to delete object", e);
+          alert("Failed to delete object.");
+          console.log("Failed to delete object.", e);
         });
     },
     handleBackClick() {
