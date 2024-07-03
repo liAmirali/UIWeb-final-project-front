@@ -13,10 +13,24 @@
   </div>
 
   <div class="bg-catskill-white my-5 mx-5 rounded-xl py-8 px-8">
-    <div class="flex mx-auto">
-      <div v-if="page > 1" @click="page = page - 1">&lt;</div>
-      <div>{{ page }} / {{ pageCount }}</div>
-      <div v-if="pageCount > page" @click="page = page + 1">&gt;</div>
+    <div class="flex mx-auto items-center gap-x-2">
+      <div
+        v-if="page > 1"
+        @click="page = page - 1"
+        class="size-6 bg-white flex items-center justify-center rounded-full border shadow-sm text-sm cursor-pointer"
+      >
+        &lt;
+      </div>
+      <div class="bg-white p-2 border text-sm rounded-lg shadow-sm">
+        {{ page }} / {{ pageCount }}
+      </div>
+      <div
+        v-if="pageCount > page"
+        @click="page = page + 1"
+        class="size-6 bg-white flex items-center justify-center rounded-full border shadow-sm text-sm cursor-pointer"
+      >
+        &gt;
+      </div>
     </div>
   </div>
 </template>
@@ -73,7 +87,7 @@ export default {
     page() {
       this.fetchList();
     },
-  }
+  },
 };
 </script>
 
