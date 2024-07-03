@@ -5,6 +5,7 @@
       <div
         v-if="accessType === 'owner'"
         class="flex gap-x-3 py-2 px-3 items-center cursor-pointer hover:bg-neutral-100 transition-all"
+        @click="isShareDialogOpen = true"
       >
         <div class="rounded-full bg-sandy-brown-300/10 p-[0.6rem] size-8">
           <img src="../../../assets/icons/Line/Share.svg" alt="" />
@@ -23,6 +24,7 @@
       <div
         v-if="accessType === 'owner'"
         class="flex gap-x-3 pt-2 px-3 items-center cursor-pointer hover:bg-neutral-100 transition-all"
+        @click="onDelete"
       >
         <div class="rounded-full bg-geraldine-400/10 p-[0.6rem] size-8">
           <img src="../../../assets/icons/Line/Trash.svg" alt="" />
@@ -31,12 +33,24 @@
       </div>
     </div>
   </div>
+
+  <teleport to="#app">
+    <dialog
+      :open="isShareDialogOpen"
+      v-if="isShareDialogOpen"
+      class="fixed inset-0 size-full flex items-center backdrop-blur-sm justify-center bg-cornflower-blue-400/10 z-30"
+    >
+      <people-container @back-click="handleBackClick"></people-container>
+    </dialog>
+  </teleport>
 </template>
 
 <script>
+import PeopleContainer from "../people/PeopleContainer.vue";
 import { fetcher } from "@/config/api";
 
 export default {
+  components: { PeopleContainer },
   props: {
     objectKey: {
       type: String,
@@ -57,6 +71,11 @@ export default {
         return value === "owner" || value === "viewer";
       },
     },
+  },
+  data() {
+    return {
+      isShareDialogOpen: false,
+    };
   },
   methods: {
     onDownload() {
@@ -80,8 +99,19 @@ export default {
           URL.revokeObjectURL(href);
         });
     },
-    onTrash() {
-      fetcher.post("/objects/delete/", { object_key: this.objectKey });
+    onDelete() {
+      fetcher
+        .delete("/objects/delete/", { data: { object_key: this.objectKey } })
+        .then(() => {
+          console.log("Successfully deleted object");
+        })
+        .catch((e) => {
+          console.log("Failed to delete object", e);
+        });
+    },
+    handleBackClick() {
+      console.log("handleBackClick");
+      this.isShareDialogOpen = false;
     },
   },
 };
