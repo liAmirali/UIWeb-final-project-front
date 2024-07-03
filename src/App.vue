@@ -18,8 +18,9 @@ export default {
       } else {
         fetcher
           .post("/auth/verify/", { token: accessToken })
-          .then(() => {
+          .then((res) => {
             // Handle success
+            localStorage.setItem("user", JSON.stringify(res.data.user));
             this.$router.push("/");
           })
           .catch((error) => {

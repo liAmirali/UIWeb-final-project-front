@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between items-center gap-x-3">
     <img class="w-12 h-12 rounded-full" :src="pictureUrl" alt="" />
-    <p>{{ name }}</p>
+    <p v-if="name">@{{ name }}</p>
   </div>
 </template>
 

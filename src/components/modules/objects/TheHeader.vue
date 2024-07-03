@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       user: {
-        name: "Asal",
+        name: "",
         pictureUrl: "http://localhost:8080/Avatar.png",
       },
     };
@@ -64,6 +64,12 @@ export default {
           console.error(error);
         });
     },
+    setName() {
+      this.user.name = JSON.parse(localStorage.getItem("user")).username;
+    },
+  },
+  mounted() {
+    this.setName();
   },
 };
 </script>
