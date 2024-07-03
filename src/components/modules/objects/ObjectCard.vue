@@ -46,9 +46,10 @@
       >
         <object-menu
           :fileName="file.name"
+          :fileMimeType="file.mime_type"
           :accessType="file.is_owner ? 'owner' : 'viewer'"
           :objectKey="file.object_key"
-        ></object-menu>
+        />
       </div>
     </div>
   </div>

@@ -46,6 +46,10 @@ export default {
       type: String,
       required: true,
     },
+    fileMimeType: {
+      type: String,
+      required: true,
+    },
     accessType: {
       type: String,
       required: true,
@@ -57,16 +61,24 @@ export default {
   methods: {
     onDownload() {
       console.log(this.objectKey);
-      fetcher.get("/objects/download/", { params: { object_key: this.objectKey } }).then((res) => {
-        const url = window.URL.createObjectURL(new Blob([res.data]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", this.fileName);
-        document.body.appendChild(link);
-        link.click();
-        window.URL.revokeObjectURL(url);
-        link.remove();
-      });
+      const mime = this.fileMimeType;
+      console.log("mime:", mime);
+      fetcher
+        .get("/objects/download/", {
+          params: { object_key: this.objectKey },
+          responseType: "blob",
+        })
+        .then((res) => {
+          const blob = new Blob([res.data], { type: mime });
+          const link = document.createElement("a");
+          link.setAttribute("download", this.fileName);
+          link.setAttribute("target", "_blank");
+
+          const href = URL.createObjectURL(blob);
+          link.href = href;
+          link.click();
+          URL.revokeObjectURL(href);
+        });
     },
     onTrash() {
       fetcher.post("/objects/delete/", { object_key: this.objectKey });
