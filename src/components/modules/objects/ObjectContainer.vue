@@ -5,7 +5,7 @@
       <p class="text-sm">Total: <span class="font-semibold">12 GB</span></p>
     </div>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       <object-card v-for="file in files" :key="file.id" :file="file" />
     </div>
   </div>

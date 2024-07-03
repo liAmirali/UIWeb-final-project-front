@@ -1,11 +1,29 @@
 <template>
   <div class="flex h-20 bg-white rounded-xl items-center px-4" @contextmenu.prevent="openMenu">
-    <div class="rounded-full bg-cornflower-blue-400/10 size-12 flex items-center justify-center">
-      <img v-if="file.file_type === 'music'" src="../../../assets/icons/File Types/music.svg" alt="" />
+    <div
+      class="rounded-full bg-cornflower-blue-400/10 shrink-0 size-12 flex items-center justify-center"
+    >
+      <img
+        v-if="file.file_type === 'music'"
+        src="../../../assets/icons/File Types/music.svg"
+        alt=""
+      />
       <img v-if="file.file_type === 'pdf'" src="../../../assets/icons/File Types/PDF.svg" alt="" />
-      <img v-if="file.file_type === 'video'" src="../../../assets/icons/File Types/Audio.svg" alt="" />
-      <img v-if="file.file_type === 'image'" src="../../../assets/icons/File Types/Image.svg" alt="" />
-      <img v-if="file.file_type === 'others'" src="../../../assets/icons/File Types/Others.svg" alt="" />
+      <img
+        v-if="file.file_type === 'video'"
+        src="../../../assets/icons/File Types/Audio.svg"
+        alt=""
+      />
+      <img
+        v-if="file.file_type === 'image'"
+        src="../../../assets/icons/File Types/Image.svg"
+        alt=""
+      />
+      <img
+        v-if="file.file_type === 'others'"
+        src="../../../assets/icons/File Types/Others.svg"
+        alt=""
+      />
     </div>
 
     <div class="px-4">
