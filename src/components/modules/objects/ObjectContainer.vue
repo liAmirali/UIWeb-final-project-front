@@ -10,9 +10,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       <object-card v-for="file in files" :key="file.id" :file="file" />
     </div>
-  </div>
 
-  <div class="bg-catskill-white my-5 mx-5 rounded-xl py-8 px-8">
     <div class="flex mx-auto items-center gap-x-2">
       <div
         v-if="page > 1"
