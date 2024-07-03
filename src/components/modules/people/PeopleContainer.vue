@@ -8,14 +8,13 @@
       <app-input placeholder="Search people" :style="'thin'"></app-input>
     </div>
     <div class="max-h-96 overflow-auto space-y-3 px-3">
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
-      <people-item name="Asal" email="asal.khaef@gmail.com" pictureUrl="/Avatar.png"></people-item>
+      <people-item
+        v-for="person in people"
+        :key="person.id"
+        :name="person.username"
+        :email="person.email"
+        pictureUrl="/Avatar.png"
+      ></people-item>
     </div>
     <div class="flex justify-between p-3 bg-white items-center">
       <div class="flex">
@@ -33,14 +32,40 @@ import BackButton from "@/components/common/buttons/BackButton.vue";
 import PeopleItem from "./PeopleItem.vue";
 import AppInput from "@/components/common/inputs/AppInput.vue";
 import AppButton from "@/components/common/buttons/AppButton.vue";
+import { fetcher } from "@/config/api";
+
 export default {
   components: { BackButton, PeopleItem, AppInput, AppButton },
   emits: ["backClick"],
+  props: {
+    objectKey: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return { people: [] };
+  },
   methods: {
     onBackButtonClick() {
       console.log("HERE");
       this.$emit("backClick");
     },
+    fetchUsers() {
+      fetcher
+        .get("/objects/people/", {
+          params: {
+            object_key: this.objectKey,
+          },
+        })
+        .then((res) => {
+          this.people = res.data;
+        })
+        .catch(() => {});
+    },
+  },
+  mounted() {
+    this.fetchUsers();
   },
 };
 </script>

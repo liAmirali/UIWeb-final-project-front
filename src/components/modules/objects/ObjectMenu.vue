@@ -40,7 +40,7 @@
       v-if="isShareDialogOpen"
       class="fixed inset-0 size-full flex items-center backdrop-blur-sm justify-center bg-cornflower-blue-400/10 z-30"
     >
-      <people-container @back-click="handleBackClick"></people-container>
+      <people-container @back-click="handleBackClick" :objectKey="objectKey"></people-container>
     </dialog>
   </teleport>
 </template>
