@@ -9,6 +9,7 @@
 
     <div class="flex">
       <input
+        @input="onInputChange"
         :name="name"
         :type="type === 'password' && isPasswordVisible ? 'text' : type"
         :placeholder="placeholder"
@@ -35,6 +36,7 @@ export default {
       isPasswordVisible: false,
     };
   },
+  emits: ["updateInput"],
   props: {
     name: String,
     label: String,
@@ -46,6 +48,12 @@ export default {
       validator(value) {
         return value === "thin" || value === "default";
       },
+    },
+  },
+  methods: {
+    onInputChange(event) {
+      const value = event.target.value;
+      this.$emit("updateInput", value);
     },
   },
 };

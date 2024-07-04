@@ -1,15 +1,22 @@
 <template>
   <div class="w-[400px] rounded-3xl border bg-neutral-50 overflow-hidden">
     <div class="flex h-16 items-center justify-center relative">
-      <div class="flex absolute left-3" @click="onBackButtonClick"><back-button /></div>
+      <div class="flex absolute left-3" @click="onBackButtonClick">
+        <back-button />
+      </div>
       <p class="text-xl font-semibold">Add People</p>
     </div>
     <div class="px-3 mb-5">
-      <app-input placeholder="Search people" :style="'thin'"></app-input>
+      <app-input
+        @update-input="handleSearchInputChange"
+        name="search-people"
+        placeholder="Search people"
+        :style="'thin'"
+      ></app-input>
     </div>
     <div class="max-h-96 overflow-auto space-y-3 px-3">
       <people-item
-        v-for="person in people"
+        v-for="person in filteredPeople"
         :key="person.id"
         :name="person.username"
         :email="person.email"
@@ -21,8 +28,16 @@
     <div class="flex justify-between p-3 bg-white items-center">
       <div class="flex">
         <img class="rounded-full size-8 border" src="/Avatar.png" alt="" />
-        <img class="rounded-full size-8 border -ml-2" src="/Avatar.png" alt="" />
-        <img class="rounded-full size-8 border -ml-2" src="/Avatar.png" alt="" />
+        <img
+          class="rounded-full size-8 border -ml-2"
+          src="/Avatar.png"
+          alt=""
+        />
+        <img
+          class="rounded-full size-8 border -ml-2"
+          src="/Avatar.png"
+          alt=""
+        />
       </div>
       <app-button @click="handleSubmitClick">Continue</app-button>
     </div>
@@ -46,7 +61,7 @@ export default {
     },
   },
   data() {
-    return { people: [], checkedUsers: [] };
+    return { people: [], checkedUsers: [], searchValue: "" };
   },
   methods: {
     onBackButtonClick() {
@@ -63,7 +78,9 @@ export default {
         .then((res) => {
           this.people = res.data
             .filter((u) => !u.is_owner)
-            .sort((a, b) => (a.has_access && b.has_access ? 0 : a.has_access ? -1 : 1));
+            .sort((a, b) =>
+              a.has_access && b.has_access ? 0 : a.has_access ? -1 : 1
+            );
           this.people.forEach((user) => {
             if (user.has_access) this.checkedUsers.push(user.id);
           });
@@ -90,6 +107,21 @@ export default {
         .catch(() => {
           alert("An error occurred.");
         });
+    },
+    handleSearchInputChange(value) {
+      this.searchValue = value;
+    },
+  },
+  computed: {
+    filteredPeople() {
+      if (this.searchValue === "") return this.people;
+      else {
+        return this.people.filter(
+          (person) =>
+            person.email.includes(this.searchValue) ||
+            person.username.includes(this.searchValue)
+        );
+      }
     },
   },
   mounted() {
