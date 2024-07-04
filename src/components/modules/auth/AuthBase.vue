@@ -2,10 +2,17 @@
   <div class="flex w-full h-screen">
     <!-- Left sidebar -->
     <div
-      class="basis-2/5 bg-cornflower-blue-400 px-10 py-32 text-white flex flex-col justify-between"
+      class="basis-2/5 bg-cornflower-blue-400 px-10 py-32 text-white flex flex-col justify-between gap-y-5"
     >
-      <h1 class="text-4xl">Storage</h1>
-
+      <div class="flex gap-x-4 items-center">
+        <div class="relative">
+          <div class="rounded-full bg-white/20 size-12"></div>
+          <div
+            class="rounded-full bg-white size-9 absolute top-[15px] left-4"
+          ></div>
+        </div>
+        <h2 class="font-bold text-4xl">Storage</h2>
+      </div>
       <div class="flex flex-col gap-y-4">
         <p class="text-5xl font-bold">Manage your files the best way</p>
         <p>

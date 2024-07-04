@@ -1,6 +1,14 @@
 <template>
   <div class="flex justify-between items-center px-6 py-4 gap-x-8 md:gap-x-24">
-    <h2 class="text-cornflower-blue-400 font-bold">Storage</h2>
+    <div class="flex gap-x-4 items-center">
+      <div class="relative">
+        <div class="rounded-full bg-cornflower-blue-200 w-9 h-9"></div>
+        <div
+          class="rounded-full bg-cornflower-blue-400 w-6 h-6 absolute top-[15px] left-4"
+        ></div>
+      </div>
+      <h2 class="text-cornflower-blue-400 font-bold">Storage</h2>
+    </div>
     <div class="grow hidden sm:block">
       <div class="lg:w-1/2">
         <app-input
