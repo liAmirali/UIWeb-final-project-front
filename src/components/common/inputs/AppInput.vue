@@ -7,7 +7,10 @@
       label
     }}</label>
 
-    <div class="flex">
+    <div class="flex gap-2">
+      <div v-if="type === 'search'" class="flex items-center w-4 h-4">
+        <search-icon></search-icon>
+      </div>
       <input
         @input="onInputChange"
         :name="name"
@@ -27,9 +30,10 @@
 
 <script>
 import EyeIcon from "../icons/EyeIcon.vue";
+import SearchIcon from "../icons/SearchIcon.vue";
 
 export default {
-  components: { EyeIcon },
+  components: { EyeIcon, SearchIcon },
   name: "AppInput",
   data() {
     return {

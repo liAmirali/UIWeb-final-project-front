@@ -8,6 +8,7 @@
     </div>
     <div class="px-3 mb-5">
       <app-input
+        type="search"
         @update-input="handleSearchInputChange"
         name="search-people"
         placeholder="Search people"
