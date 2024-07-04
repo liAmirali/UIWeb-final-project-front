@@ -1,8 +1,8 @@
 <template>
-  <div class="flex justify-between items-center px-6 py-4 gap-x-24">
+  <div class="flex justify-between items-center px-6 py-4 gap-x-8 md:gap-x-24">
     <h2 class="text-cornflower-blue-400 font-bold">Storage</h2>
-    <div class="grow">
-      <div class="w-1/2">
+    <div class="grow hidden sm:block">
+      <div class="lg:w-1/2">
         <app-input placeholder="Search" :style="'thin'"></app-input>
       </div>
     </div>
@@ -11,6 +11,10 @@
       <app-button @click="triggerFileInput">Upload</app-button>
       <app-avatar :name="user.name" :pictureUrl="user.pictureUrl" />
     </div>
+  </div>
+
+  <div class="sm:hidden px-6">
+    <app-input placeholder="Search" :style="'thin'"></app-input>
   </div>
 </template>
 
