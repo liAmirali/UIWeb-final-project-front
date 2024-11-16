@@ -14,8 +14,8 @@ const routes = [
   { path: "/login", component: LoginPage },
   { path: "/register", component: RegisterPage },
   { path: "/verify", component: VerifyEmailPage },
-  { path: "/:pathMatch(.*)*", redirect: "/" }, // Redirect any unknown paths to the /
   { path: "/activation-complete", component: ActivateEmailPage },
+  { path: "/:pathMatch(.*)*", redirect: "/" }, // Redirect any unknown paths to the /
 ];
 
 const router = createRouter({

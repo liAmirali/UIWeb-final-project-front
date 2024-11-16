@@ -13,6 +13,8 @@ export default {
   methods: {
     checkLogin() {
       const accessToken = localStorage.getItem("accessToken");
+
+      if (window.location.pathname === "/activation-complete") return;
       if (accessToken === null) {
         this.$router.push("/login");
       } else {
